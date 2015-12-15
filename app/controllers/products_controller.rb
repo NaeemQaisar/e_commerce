@@ -1,4 +1,7 @@
 class ProductsController < ApplicationController
+  before_filter :authenticate_user! 
+  # before_filter :set_product, only: [:show, :edit, :update, :destroy]
+  before_filter :set_product, except: [:index, :new, :create]
   # GET /products
   # GET /products.json
   def index
@@ -79,5 +82,10 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url }
       format.json { head :no_content }
     end
+  end
+
+  private
+  def set_product
+    @product = Product.find(params[:id])
   end
 end

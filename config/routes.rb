@@ -1,4 +1,15 @@
 ECommerce::Application.routes.draw do
+  resources :comments
+
+
+root to: "products#index"
+  devise_for :users
+  ActiveAdmin.routes(self)
+
+    
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :products
 
 
