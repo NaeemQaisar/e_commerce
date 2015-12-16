@@ -30,7 +30,7 @@ end
 gem 'jquery-rails', '~> 2.3.0'
 gem 'devise'
 gem 'paperclip'
-gem 'activeadmin'
+gem 'activeadmin', '0.5.0'
 gem "meta_search", '>= 1.1.0.pre'
 
 
