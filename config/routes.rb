@@ -1,5 +1,5 @@
 ECommerce::Application.routes.draw do
-  resources :comments
+  
 
 
 root to: "products#index"
@@ -10,7 +10,10 @@ root to: "products#index"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  resources :products
+  resources :products do
+    get "blog"
+    resources :comments
+    end    
 
 
   # The priority is based upon order of creation:
