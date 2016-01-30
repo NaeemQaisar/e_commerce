@@ -1,20 +1,16 @@
 ECommerce::Application.routes.draw do
   
-
-
 root to: "products#index"
   devise_for :users
   ActiveAdmin.routes(self)
 
-    
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
+  resources :charges
   resources :products do
     get "blog"
-    resources :comments
+    resources :reviews
     end    
-
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

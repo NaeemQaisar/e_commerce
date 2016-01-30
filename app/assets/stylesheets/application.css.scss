@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  */
-h1 {
-	color: green;
-	font-size: 50px;
-}
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "user";
+

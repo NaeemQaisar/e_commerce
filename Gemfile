@@ -32,6 +32,10 @@ gem 'devise'
 gem 'paperclip'
 gem 'activeadmin'
 gem "meta_search", '>= 1.1.0.pre'
+gem 'stripe'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
 
 
 # To use ActiveModel has_secure_password

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
 <p>
   <b>Name:</b>
@@ -16,15 +16,14 @@
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
 
-<%= render "comments/new_comment_form"%>
+<%= render "reviews/new_comment_form"%>
 
-<%= @comments.each do |comment| %>
-	
-	<p>
-		<span> <%= comment.created_at %></span>
-	</p>
+<div id="reviews">
+	<% @comments.each do |comment| %>
 	<p>
 		<span> <b> Comment:</b></span>
 		<%= comment.comment %>
 	</p>
+</div>
 <% end %>
+

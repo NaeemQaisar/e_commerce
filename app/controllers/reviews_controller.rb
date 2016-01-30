@@ -1,10 +1,10 @@
-class CommentsController < ApplicationController
+class ReviewsController < ApplicationController
   before_filter :set_comment, only: [:show, :edit, :update, :destroy]
   before_filter :set_product, only: [:create]
   respond_to :html
 
   def index
-    @comments = Comment.all
+    @comments = Review.all
     respond_with(@comments)
   end
 
@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new
+    @comment = Review.new
     respond_with(@comment)
   end
 
@@ -21,13 +21,19 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = @product.comments.new(params[:comment])
-    @comment.save
-    redirect_to @comment.product
+    @comment = @product.reviews.new(params[:review])
+    respond_to do |format|
+      if @comment.save
+        format.html {redirect_to @comment.product}
+        format.js {}
+      else
+        format.html {render action "new"}
+      end
+    end
   end
 
   def update
-    @comment.update_attributes(params[:comment])
+    @comment.update_attributes(params[:review])
     respond_with(@comment)
   end
 
@@ -38,7 +44,7 @@ class CommentsController < ApplicationController
 
   private
     def set_comment
-      @comment = Comment.find(params[:id])
+      @comment = Review.find(params[:id])
     end
 
     def set_product 
